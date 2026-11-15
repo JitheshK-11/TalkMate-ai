@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Assessment from "./pages/Assessment";
+import Onboarding from "./pages/Onboarding";
+import Auth from "./pages/Auth";
 import {
   ArrowRight,
   AudioLines,
@@ -85,6 +88,7 @@ const games = [
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
@@ -114,12 +118,28 @@ function Home() {
           </div>
 
           <div className="hidden md:block">
-            <button
-              onClick={() => scrollTo("journey")}
-              className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-violet-200"
-            >
-              Get started <ArrowRight size={16} />
-            </button>
+           <button
+  onClick={() => navigate("/auth")}
+  className="
+    group inline-flex items-center justify-center gap-3
+    rounded-full
+    bg-gradient-to-r from-violet-600 to-purple-500
+    px-7 py-3.5
+    text-sm font-semibold text-white
+    shadow-lg shadow-violet-600/25
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:shadow-xl hover:shadow-violet-500/40
+    active:scale-95
+  "
+>
+  Get started
+
+  <ArrowRight
+    size={18}
+    className="transition-transform duration-300 group-hover:translate-x-1"
+  />
+</button>
           </div>
 
           <button
@@ -137,7 +157,7 @@ function Home() {
             <button onClick={() => scrollTo("journey")}>How it works</button>
             <button onClick={() => scrollTo("games")}>Speaking games</button>
             <button onClick={() => scrollTo("journey")} className="rounded-full bg-violet-600 py-3">
-              Get started
+              Get started 
             </button>
           </div>
         )}
@@ -402,7 +422,7 @@ function Home() {
             <div className="rounded-lg bg-violet-600 p-2">
               <AudioLines size={19} />
             </div>
-            <span className="font-bold">SpeakMate AI</span>
+            <span className="font-bold">TalkMate AI</span>
           </div>
           <p className="text-center text-sm text-gray-500">
             Speak better. Grow stronger. Every single day.
@@ -420,6 +440,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/assessment" element={<Assessment />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/onboarding" element={<Onboarding />} />
       </Routes>
     </BrowserRouter>
   );
