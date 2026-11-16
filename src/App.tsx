@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Assessment from "./pages/Assessment";
 import Onboarding from "./pages/Onboarding";
+import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
 import {
   ArrowRight,
@@ -442,6 +443,7 @@ function App() {
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

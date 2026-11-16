@@ -1,6 +1,8 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -37,9 +39,24 @@ function Auth() {
 
     try {
       if (isLogin) {
-        await signInWithEmailAndPassword(auth, email, password);
-        navigate("/dashboard");
-      } else {
+  const result = await signInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+
+  const user = result.user;
+
+  const userDoc = await getDoc(
+    doc(db, "users", user.uid)
+  );
+
+  if (userDoc.exists() && userDoc.data().onboardingCompleted === true) {
+    navigate("/dashboard");
+  } else {
+    navigate("/onboarding");
+  }
+} else {
         if (name.trim().length < 2) {
           throw new Error("Please enter your full name.");
         }
