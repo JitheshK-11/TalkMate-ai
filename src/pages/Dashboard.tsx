@@ -145,7 +145,7 @@ export default function Dashboard() {
             className="flex items-center gap-3 text-xl font-bold"
           >
             <AudioLines className="text-violet-400" />
-            SpeakMate<span className="text-violet-400">.</span>
+            TalkMate<span className="text-violet-400">.</span>
           </button>
 
           <button
@@ -249,14 +249,17 @@ export default function Dashboard() {
                 {report.overall_summary}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <button
-                  onClick={() => navigate("/assessment")}
-                  className="bg-violet-600 hover:bg-violet-500 rounded-xl px-5 py-3 font-semibold"
-                >
-                  Retake assessment
-                </button>
-              </div>
+             
+ <div className="mt-6 flex flex-wrap gap-3">
+  <button
+    onClick={() => navigate("/dashboard/voice-tutor")}
+    className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 rounded-xl px-6 py-3 font-semibold transition"
+  >
+    <Mic size={18} />
+    Start AI Voice Tutor
+    <ArrowRight size={18} />
+  </button>
+</div>
             </section>
 
             {report.scores && (

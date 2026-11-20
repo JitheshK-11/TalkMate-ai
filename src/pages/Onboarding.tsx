@@ -166,7 +166,7 @@ function Onboarding() {
       await setDoc(profileRef, profileData, { merge: true });
 
       localStorage.setItem(
-        "speakmate_preferences",
+        "talkkmate_preferences",
         JSON.stringify({ goal, dailyMinutes })
       );
 
@@ -217,7 +217,7 @@ function Onboarding() {
           </h1>
 
           <p className="text-gray-400 max-w-xl mx-auto">
-            Help SpeakMate understand your background, current English
+            Help TalkMate understand your background, current English
             level and learning goals.
           </p>
         </div>
@@ -444,7 +444,7 @@ function Onboarding() {
           </button>
 
           <p className="text-center text-xs text-gray-500 pb-5">
-            Your information is saved securely to your SpeakMate account.
+            Your information is saved securely to your TalkMate account.
           </p>
 
         </form>

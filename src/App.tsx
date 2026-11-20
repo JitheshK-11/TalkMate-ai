@@ -5,6 +5,8 @@ import Assessment from "./pages/Assessment";
 import Onboarding from "./pages/Onboarding";
 import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
+import DailyPractice from "./pages/DailyPractice";
+import VoiceTutor from "./pages/VoiceTutor";
 import {
   ArrowRight,
   AudioLines,
@@ -108,7 +110,7 @@ function Home() {
               <AudioLines size={23} />
             </div>
             <span className="text-xl font-bold tracking-tight">
-              SpeakMate<span className="text-violet-400">.</span>
+              TalkMate<span className="text-violet-400">.</span>
             </span>
           </a>
 
@@ -279,7 +281,7 @@ function Home() {
       <section id="features" className="scroll-mt-24 border-t border-white/[0.06] px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto mb-16 max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-400">Why SpeakMate?</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-400">Why TalkMate?</p>
             <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
               Everything you need to
               <span className="text-violet-400"> speak confidently.</span>
@@ -428,7 +430,7 @@ function Home() {
           <p className="text-center text-sm text-gray-500">
             Speak better. Grow stronger. Every single day.
           </p>
-          <p className="text-xs text-gray-600">© 2026 SpeakMate AI</p>
+          <p className="text-xs text-gray-600">© 2026 TalkMate AI</p>
         </div>
       </footer>
     </main>
@@ -443,7 +445,9 @@ function App() {
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/daily-practice" element={<DailyPractice />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/voice-tutor" element={<VoiceTutor />} />
       </Routes>
     </BrowserRouter>
   );

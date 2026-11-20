@@ -110,7 +110,7 @@ interface AssessmentReport {
 
 function getPreferences() {
   try {
-    const saved = localStorage.getItem("speakmate_preferences");
+    const saved = localStorage.getItem("talkmate_preferences");
 
     if (saved) {
       return JSON.parse(saved);
@@ -430,7 +430,7 @@ export default function Assessment() {
             />
 
             <p className="text-violet-400 font-semibold text-sm mb-3">
-              SPEAKMATE AI · ASSESSMENT REPORT
+              TALKMATE AI · ASSESSMENT REPORT
             </p>
 
             <h1 className="text-3xl md:text-4xl font-bold mb-4">

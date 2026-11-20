@@ -9,6 +9,8 @@ from pydantic import BaseModel
 from groq import Groq
 import json
 from typing import List
+from routes.practice import router as practice_router
+from routes.voice import router as voice_router
 
 try:
     Groq = import_module("groq").Groq
@@ -36,6 +38,8 @@ groq_client = Groq(api_key=GROQ_API_KEY)
 
 
 app = FastAPI(title="TalkMate AI Backend")
+app.include_router(practice_router)
+app.include_router(voice_router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -130,7 +134,7 @@ def evaluate_answer(data: EvaluationRequest):
         )
 
     prompt = f"""
-You are SpeakMate AI, an expert English speaking coach.
+You are TalkMate AI, an expert English speaking coach.
 
 Evaluate this student's English answer.
 
@@ -386,7 +390,7 @@ IMPORTANT RULES:
                 {
                     "role": "system",
                     "content": (
-                        "You are SpeakMate AI. "
+                        "You are TalkMate AI. "
                         "You provide evidence-based English "
                         "communication assessments. "
                         "Return valid JSON only."
